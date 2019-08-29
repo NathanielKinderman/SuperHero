@@ -83,7 +83,8 @@ namespace SuperHeroes.Controllers
         // GET: SuperHero/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var superhero = contex.SuperHero.Find(id);
+            return View(superhero);
         }
 
         // POST: SuperHero/Delete/5
@@ -93,7 +94,10 @@ namespace SuperHeroes.Controllers
             try
             {
                 // TODO: Add delete logic here
-
+                SuperHero superhero = contex.SuperHero.Find(id);
+                contex.SuperHero.Remove(superhero);
+                contex.SaveChanges();
+                
                 return RedirectToAction("Index");
             }
             catch
