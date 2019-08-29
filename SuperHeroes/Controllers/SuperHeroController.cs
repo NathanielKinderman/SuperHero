@@ -33,7 +33,7 @@ namespace SuperHeroes.Controllers
         {
             SuperHero superhero = new SuperHero();
             return View(superhero);
-        }
+        } 
 
         // POST: SuperHero/Create
         [HttpPost]
@@ -55,17 +55,23 @@ namespace SuperHeroes.Controllers
         // GET: SuperHero/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var superhero = contex.SuperHero.Find(id);            
+            return View(superhero);
         }
 
         // POST: SuperHero/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, SuperHero superHero)
         {
             try
             {
-                // TODO: Add update logic here
-
+                var superhero = contex.SuperHero.Find(id);
+                superhero.SuperHeroNAme = Request.Form["SuperHeroName"];
+                superhero.AlterEgoName = Request.Form["AlterEgoName"];
+                superhero.PrimarySuperHeroAbility = Request.Form["PrimarySuperHeroAbiliy"];
+                superhero.SecondarySuperheroAbility = Request.Form["SecondarySuperheroAbility"];
+                superhero.CatchPhrase = Request.Form["CatchPhrase"];
+                contex.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
