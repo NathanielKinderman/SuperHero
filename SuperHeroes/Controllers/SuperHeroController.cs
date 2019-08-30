@@ -69,7 +69,7 @@ namespace SuperHeroes.Controllers
                 var superhero = contex.SuperHero.Find(id);
                 superhero.SuperHeroNAme = Request.Form["SuperHeroName"];
                 superhero.AlterEgoName = Request.Form["AlterEgoName"];
-                superhero.PrimarySuperHeroAbility = Request.Form["PrimarySuperHeroAbiliy"];
+                superhero.PrimarySuperHeroAbility = Request.Form["PrimarySuperHeroAbility"];
                 superhero.SecondarySuperheroAbility = Request.Form["SecondarySuperheroAbility"];
                 superhero.CatchPhrase = Request.Form["CatchPhrase"];
                 contex.SaveChanges();
