@@ -14,7 +14,7 @@
         <th>
             @Html.DisplayNameFor(model => model.SuperHeroNAme)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.AlterEgoName)
         </th>
         <th>
@@ -25,16 +25,17 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CatchPhrase)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.SuperHeroNAme)
+            @*@Html.DisplayFor(modelItem => item.SuperHeroNAme)*@
+            @Html.ActionLink(item.SuperHeroNAme, "Select", new { id = item.MyProperty }) |
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.AlterEgoName)
         </td>
         <td>
@@ -45,7 +46,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CatchPhrase)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.MyProperty }) |
             @Html.ActionLink("Select", "Select", new { id=item.MyProperty }) |
