@@ -245,6 +245,8 @@
     <Content Include="Views\SuperHero\Create.cshtml" />
     <Content Include="Views\SuperHero\Edit.cshtml" />
     <Content Include="Views\SuperHero\Delete.cshtml" />
+    <Content Include="Views\SuperHero\Select.cshtml" />
+    <Content Include="Views\SuperHero\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

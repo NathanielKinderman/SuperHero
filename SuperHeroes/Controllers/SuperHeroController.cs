@@ -17,15 +17,16 @@ namespace SuperHeroes.Controllers
         // GET: SuperHero
         public ActionResult Index()
         {
-
-            return View();
+            var superhero = contex.SuperHero.ToList();
+            // List<SuperHero> SuperHero = new List<SuperHero>();
+            return View(superhero);
         }
 
         // GET: SuperHero/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Select(int id)
         {
-            
-            return View();
+            var superhero = contex.SuperHero.Find(id);
+            return View(superhero);
         }
 
         // GET: SuperHero/Create
@@ -44,7 +45,7 @@ namespace SuperHeroes.Controllers
                 // TODO: Add insert logic here
                 contex.SuperHero.Add(superhero);
                 contex.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "SuperHero");
             }
             catch
             {
@@ -72,7 +73,7 @@ namespace SuperHeroes.Controllers
                 superhero.SecondarySuperheroAbility = Request.Form["SecondarySuperheroAbility"];
                 superhero.CatchPhrase = Request.Form["CatchPhrase"];
                 contex.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","SuperHero");
             }
             catch
             {
@@ -98,7 +99,7 @@ namespace SuperHeroes.Controllers
                 contex.SuperHero.Remove(superhero);
                 contex.SaveChanges();
                 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "SuperHero");
             }
             catch
             {
